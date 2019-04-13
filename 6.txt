@@ -1,0 +1,39 @@
+//easy -> non repeating character
+
+#include<iostream>
+using namespace std;
+
+int main() {
+	int test;
+	cin>>test;
+
+	while(test--){
+	    
+	    int n;
+		cin>>n;
+		
+		string a;
+		cin>>a;
+		
+		int arr[26]={0};
+
+		for(int i=0;i<a.size();i++){
+			arr[a[i]-'a']++;
+		}
+
+		int flag=0;
+
+		for(int i=0;i<a.size();i++){
+		    if(arr[a[i]-'a']==1){
+		        cout<<a[i]<<endl;
+		        flag++;
+		        break;
+		    }
+		}
+		
+		if(!flag)
+			cout<<"-1"<<endl;
+	}
+
+	return 0;
+}
