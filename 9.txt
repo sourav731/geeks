@@ -1,0 +1,35 @@
+#include<iostream>
+using namespace std;
+
+int main() {
+	int test;
+	cin>>test;
+
+	while(test--){
+		string a;
+		cin>>a;
+		
+		unordered_map<char,int> store;
+		
+		int ma=0;
+		int count=0;
+
+		for(int i=0;i<a.size();i++){
+			if(store.find(a[i])==store.end()){
+				store[a[i]]=i;
+				count++;
+			}
+			else{
+				i=store[a[i]];
+				store.clear();
+
+				ma=max(count,ma);
+				count=0;
+			}
+		}
+
+		cout<<max(ma,count)<<endl;
+	}
+
+	return 0;
+}
