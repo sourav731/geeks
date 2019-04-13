@@ -1,0 +1,54 @@
+//http://practice.geeksforgeeks.org/problems/ncr/0
+#include <stdio.h>
+#define modulus 1000000007
+long long int min(long long int a,long long int b)
+{
+	return (a<b?a:b);
+}
+void func()
+{
+	long long int n,r;
+	long long int i,j;
+	scanf("%lld %lld",&n,&r);
+	if(n<r)
+	{
+		printf("0\n");
+		return;
+	}
+	if(n==r)
+	{
+		printf("1\n");
+		return;
+	}
+	if( n-r < r)
+	{
+		r =n-r;
+	}
+	long long int dp[n+1][r+1];
+	for(i=0;i<=n;i++)
+	{
+		for(j=0;j<=min(i,r);j++)// n c n-1 0s not possible
+		{
+			if(j==0 || j==i) // n c 0 =1  or n c n=1
+			{
+				dp[i][j]=1;
+			}
+			else
+			{
+				dp[i][j] = dp[i-1][j] +dp[i-1][j-1];
+				dp[i][j] %= modulus;
+			}
+		}
+	}
+	printf("%lld\n",dp[n][r] );
+}
+int main()
+{
+	int cases;
+	scanf("%d",&cases);
+	while(cases--)
+	{
+		func();
+	}
+	return 0;
+}
