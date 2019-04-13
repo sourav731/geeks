@@ -1,0 +1,28 @@
+#include<iostream>                                                
+using namespace std;
+
+int main(){
+	int test;
+	cin>>test;
+	
+	while(test--){
+	    int m,n;
+	    cin>>m>>n;
+	    
+	    int ans = m^n;    
+	
+	    int count = 0;
+	    
+	    while(ans>0){
+	        if(ans%2==1)
+	            count++;
+	        ans = ans/2;
+	    }
+	    
+	    cout<<count<<endl;
+	
+	}
+	
+	
+	return 0;
+}                                            
