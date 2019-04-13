@@ -1,0 +1,30 @@
+//easy
+
+#include<iostream>
+using namespace std;
+
+static auto _____ = []() {
+    ios_base::sync_with_stdio(false);
+    cin.tie(NULL);
+    return 0;
+}();
+
+void recPat(int n) {
+    cout<<n<<" ";
+    if (n > 0) {recPat(n-5);}
+        else {return;}
+    cout<<n<<" ";
+}
+
+int main() {
+	int test;
+	cin>>test;
+	while(test--) {
+	    int n;
+	    cin>>n;
+	    recPat(n);
+	    cout<<"\n";
+	}
+	
+	return 0;
+}
